@@ -9,6 +9,4 @@ public abstract class AbstractPage {
 		this.driver = driver;
 	}
 
-	public abstract void openPage();
-
 }
