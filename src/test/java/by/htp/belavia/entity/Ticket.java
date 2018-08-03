@@ -1,5 +1,7 @@
 package by.htp.belavia.entity;
 
+import java.util.Comparator;
+
 public class Ticket {
 
 	private String date;
@@ -65,6 +67,16 @@ public class Ticket {
 	public String toString() {
 		return "\nTicket [date=" + date + ", price=" + price + "]";
 	}
-	
-	
+
+	public static Comparator<Ticket> COMPARE_BY_PRICE = new Comparator<Ticket>() {
+		@Override
+		public int compare(Ticket one, Ticket other) {
+
+			Double d1 = (Double) one.price;
+			Double d2 = (Double) other.price;
+
+			return d1.compareTo(d2);
+		}
+	};
+
 }
