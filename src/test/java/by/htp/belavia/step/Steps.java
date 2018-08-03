@@ -1,10 +1,15 @@
 package by.htp.belavia.step;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import by.htp.belavia.driver.DriverSingleton;
+import by.htp.belavia.entity.Ticket;
 import by.htp.belavia.page.MainPage;
 import by.htp.belavia.page.SearchForm;
+import by.htp.belavia.page.SearchResultsForOneWayPage;
 
 public class Steps {
 
@@ -30,6 +35,12 @@ public class Steps {
 		searchForm.checkOneWay();
 		searchForm.selectCurrentDepartureDate();
 		searchForm.clickSearchButton();
-		
+	}
+	
+	public List<Ticket> listOfOneWayTickets(String endDate){
+		SearchResultsForOneWayPage searchTickets = new SearchResultsForOneWayPage(driver);
+		List<Ticket> tickets = searchTickets.listOfTickets(endDate);
+			
+		return tickets;		
 	}
 }
