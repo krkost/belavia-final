@@ -9,38 +9,27 @@ import org.testng.annotations.Test;
 import by.htp.belavia.entity.Ticket;
 import by.htp.belavia.step.Steps;
 
-public class BelaviaAutomationTest {
-	
+public class OneWayTicketsWithClassesTest {
+
 	private static final String ORIGIN_LOCATION = "Minsk";
 	private static final String DESTINATION_LOCATION = "Riga";
 	private static final String END_DATE = "18-11-01";
 	private Steps steps;
-	
-	@BeforeMethod
+
+	@BeforeMethod (groups = { "one-way" })
 	public void setUp() {
 		steps = new Steps();
 		steps.initBrowser();
 	}
-	
-//	@Test
-//	public void testOneWayTickets() {
-//		steps.openMainPage();
-//		steps.inputSearchFormOneWayForCurrentDate(ORIGIN_LOCATION, DESTINATION_LOCATION);
-//		List <Ticket> tickets = steps.listOfOneWayTickets(END_DATE);
-//		Collections.sort(tickets, Ticket.COMPARE_BY_PRICE);
-//		System.out.println(tickets);
-//		steps.closeDriver();
-//	}
-	
-	@Test
+
+	@Test (groups = { "one-way.classes" })
 	public void testOneWayTicketsWithClasses() {
 		steps.openMainPage();
 		steps.inputSearchFormOneWayForCurrentDate(ORIGIN_LOCATION, DESTINATION_LOCATION);
-		List <Ticket> tickets = steps.listOfOneWayTicketsWithClasses(END_DATE);
+		List<Ticket> tickets = steps.listOfOneWayTicketsWithClasses(END_DATE);
 		Collections.sort(tickets, Ticket.COMPARE_BY_PRICE);
 		System.out.println(tickets);
-		
+
 	}
-	
 
 }

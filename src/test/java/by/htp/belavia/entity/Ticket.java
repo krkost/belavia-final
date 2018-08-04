@@ -91,7 +91,7 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [date=" + date + ", price=" + price + ", className=" + className + ", time=" + time + "]";
+		return "\nTicket [date=" + date + ", price=" + price + ", className=" + className + ", time=" + time + "]";
 	}
 
 	public static Comparator<Ticket> COMPARE_BY_PRICE = new Comparator<Ticket>() {
