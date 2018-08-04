@@ -6,6 +6,8 @@ public class Ticket {
 
 	private String date;
 	private double price;
+	private String className;
+	private String time;
 
 	public Ticket() {
 		super();
@@ -15,6 +17,14 @@ public class Ticket {
 		super();
 		this.date = date;
 		this.price = price;
+	}
+
+	public Ticket(String date, double price, String className, String time) {
+		super();
+		this.date = date;
+		this.price = price;
+		this.className = className;
+		this.time = time;
 	}
 
 	public String getDate() {
@@ -31,6 +41,22 @@ public class Ticket {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public String getClassName() {
+		return className;
+	}
+
+	public void setClassName(String className) {
+		this.className = className;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	@Override
@@ -65,13 +91,12 @@ public class Ticket {
 
 	@Override
 	public String toString() {
-		return "\nTicket [date=" + date + ", price=" + price + "]";
+		return "Ticket [date=" + date + ", price=" + price + ", className=" + className + ", time=" + time + "]";
 	}
 
 	public static Comparator<Ticket> COMPARE_BY_PRICE = new Comparator<Ticket>() {
 		@Override
 		public int compare(Ticket one, Ticket other) {
-
 			Double d1 = (Double) one.price;
 			Double d2 = (Double) other.price;
 

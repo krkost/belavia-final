@@ -43,4 +43,12 @@ public class Steps {
 			
 		return tickets;		
 	}
+	
+	public List<Ticket> listOfOneWayTicketsWithClasses(String endDate){
+		SearchResultsForOneWayPage searchTickets = new SearchResultsForOneWayPage(driver);
+		List<Ticket> tickets = searchTickets.listOfTicketsWithClasses(endDate);
+		
+		return tickets;
+				
+	}
 }

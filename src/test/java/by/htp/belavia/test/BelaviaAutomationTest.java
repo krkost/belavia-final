@@ -22,14 +22,24 @@ public class BelaviaAutomationTest {
 		steps.initBrowser();
 	}
 	
+//	@Test
+//	public void testOneWayTickets() {
+//		steps.openMainPage();
+//		steps.inputSearchFormOneWayForCurrentDate(ORIGIN_LOCATION, DESTINATION_LOCATION);
+//		List <Ticket> tickets = steps.listOfOneWayTickets(END_DATE);
+//		Collections.sort(tickets, Ticket.COMPARE_BY_PRICE);
+//		System.out.println(tickets);
+//		steps.closeDriver();
+//	}
+	
 	@Test
-	public void testOneWayTickets() {
+	public void testOneWayTicketsWithClasses() {
 		steps.openMainPage();
 		steps.inputSearchFormOneWayForCurrentDate(ORIGIN_LOCATION, DESTINATION_LOCATION);
-		List <Ticket> tickets = steps.listOfOneWayTickets(END_DATE);
+		List <Ticket> tickets = steps.listOfOneWayTicketsWithClasses(END_DATE);
 		Collections.sort(tickets, Ticket.COMPARE_BY_PRICE);
 		System.out.println(tickets);
-		steps.closeDriver();
+		
 	}
 	
 
