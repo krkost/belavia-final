@@ -10,7 +10,9 @@ public class SearchForm extends AbstractPage {
 	private WebElement to = driver.findElement(By.xpath("//input[@name='DestinationLocation_Combobox']"));
 	private WebElement oneWayRadioBtn = driver.findElement(By.xpath("//label[@for='JourneySpan_Ow']"));
 	private WebElement departureFieldCalendar = driver.findElement(By.xpath("(//a[@class='trigger'])[3]"));
+	private WebElement returnFieldCalendar = driver.findElement(By.xpath("(//a[@class='trigger'])[4]"));
 	private WebElement departureDate;
+	private WebElement returnDate;
 	private WebElement searchBtn = driver.findElement(By.xpath("(//button[@class='button btn-large btn btn-b2-green ui-corner-all'])[1]"));
 
 	public SearchForm(WebDriver driver) {
@@ -35,6 +37,12 @@ public class SearchForm extends AbstractPage {
 		departureFieldCalendar.click();
 		departureDate = driver.findElement(By.xpath("//a[@class='ui-state-default ui-state-highlight ui-state-active ui-state-hover']"));
 		departureDate.click();
+	}
+	
+	public void selectReturnWeekDay(String numWeek, String dayWeek) {
+		returnFieldCalendar.click();
+		returnDate = driver.findElement(By.xpath("//*[@id='calendar']/div/div[1]/table/tbody/tr["+numWeek+"]/td["+dayWeek+"]/a"));
+		returnDate.click();
 	}
 
 	public void clickSearchButton() {

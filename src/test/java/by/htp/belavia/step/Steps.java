@@ -37,6 +37,15 @@ public class Steps {
 		searchForm.clickSearchButton();
 	}
 	
+	public void inputSearchFormReturn(String from, String to, String returnNumWeek, String returnDayWeek) {
+		SearchForm searchForm = new SearchForm(driver);
+		searchForm.inputFrom(from);
+		searchForm.inputTo(to);
+		searchForm.selectCurrentDepartureDate();
+		searchForm.selectReturnWeekDay(returnNumWeek, returnDayWeek);
+		searchForm.clickSearchButton();
+	}
+	
 	public List<Ticket> listOfOneWayTickets(String endDate){
 		SearchResultsForOneWayPage searchTickets = new SearchResultsForOneWayPage(driver);
 		List<Ticket> tickets = searchTickets.listOfTickets(endDate);
